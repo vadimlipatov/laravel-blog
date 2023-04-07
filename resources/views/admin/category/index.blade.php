@@ -12,8 +12,8 @@
 				</div><!-- /.col -->
 				<div class="col-sm-6">
 					<ol class="breadcrumb float-sm-right">
-						<!-- <li class="breadcrumb-item"><a href="#">Home</a></li> -->
-						<li class="breadcrumb-item active">Home</li>
+						<li class="breadcrumb-item"><a href="{{route('admin.index')}}">Admin</a></li>
+						<li class="breadcrumb-item active">Categories</li>
 					</ol>
 				</div><!-- /.col -->
 			</div><!-- /.row -->
@@ -51,17 +51,17 @@
 										<td>{{$category->title}}</td>
 										<td>0</td>
 										<td>
-											<a href="{{route('admin.category.show', $category->id)}}" class="mr-1"><i class="nav-icon far fa-eye1"></i>show</a>
+											<a href="{{route('admin.category.show', $category->id)}}" class=""><i class="nav-icon fas fa-eye"></i></a>
 										</td>
 										<td>
-											<a href="{{route('admin.category.edit',$category->id)}}" class="mr-1 text-success"><i class="nav-icon far fa-pen"></i>edit</a>
+											<a href="{{route('admin.category.edit',$category->id)}}" class="text-success"><i class="nav-icon fas fa-pen"></i></a>
 										</td>
 										<td>
 											<form method="post" action="{{route('admin.category.delete', $category->id)}}">
 												@csrf
 												@method('delete')
 												<button type="submit" class="border-0 bg-transparent text-danger">
-													<i class="nav-icon far fa-trash text-danger" role="button"></i>delete
+													<i class="nav-icon fas fa-trash text-danger" role="button"></i>
 												</button>
 											</form>
 										</td>

@@ -8,7 +8,7 @@
 		<div class="container-fluid">
 			<div class="row mb-2">
 				<div class="col-sm-6">
-					<h1 class="m-0">Tags</h1>
+					<h1 class="m-0">Posts</h1>
 				</div><!-- /.col -->
 				<div class="col-sm-6">
 					<ol class="breadcrumb float-sm-right">
@@ -27,7 +27,7 @@
 			<!-- Small boxes (Stat box) -->
 			<div class="row">
 				<div class="col-2 mb-3">
-					<a href="{{route('admin.tag.create')}}" class="btn btn-block btn-primary">Add</a>
+					<a href="{{route('admin.post.create')}}" class="btn btn-block btn-primary">Add</a>
 				</div>
 			</div>
 			<div class="row">
@@ -45,19 +45,19 @@
 									</tr>
 								</thead>
 								<tbody>
-									@foreach($tags as $tag)
+									@foreach($posts as $post)
 									<tr>
-										<td>{{$tag->id}}</td>
-										<td>{{$tag->title}}</td>
+										<td>{{$post->id}}</td>
+										<td>{{$post->title}}</td>
 										<td>0</td>
 										<td>
-											<a href="{{route('admin.tag.show', $tag->id)}}" class=""><i class="nav-icon fas fa-eye"></i></a>
+											<a href="{{route('admin.post.show', $post->id)}}" class=""><i class="nav-icon fas fa-eye"></i></a>
 										</td>
 										<td>
-											<a href="{{route('admin.tag.edit',$tag->id)}}" class="text-success"><i class="nav-icon fas fa-pen"></i></a>
+											<a href="{{route('admin.post.edit',$post->id)}}" class="text-success"><i class="nav-icon fas fa-pen"></i></a>
 										</td>
 										<td>
-											<form method="post" action="{{route('admin.tag.delete', $tag->id)}}">
+											<form method="post" action="{{route('admin.post.delete', $post->id)}}">
 												@csrf
 												@method('delete')
 												<button type="submit" class="border-0 bg-transparent text-danger">

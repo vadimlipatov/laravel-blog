@@ -8,15 +8,15 @@
 		<div class="container-fluid">
 			<div class="row mb-2">
 				<div class="col-sm-6 d-flex align-items-center">
-					<h1 class="m-0">{{$category->title}}
+					<h1 class="m-0">{{$post->title}}
 					</h1>
-					<a href="{{route('admin.category.show', $category->id)}}" class="text-success"><i class="nav-icon far fa-pen"></i>edit</a>
+					<a href="{{route('admin.post.show', $post->id)}}" class="text-success"><i class="nav-icon far fa-pen"></i>edit</a>
 				</div><!-- /.col -->
 				<div class="col-sm-6">
 					<ol class="breadcrumb float-sm-right">
-						<li class="breadcrumb-item"><a href="{{route('admin.index')}}">Admin</a></li>
-						<li class="breadcrumb-item"><a href="{{route('admin.category.index')}}">Categories</a></li>
-						<li class="breadcrumb-item active">{{$category->id}}</li>
+						<li class="breadcrumb-item"><a href="{{route('admin.post.index')}}">Home</a></li>
+						<li class="breadcrumb-item">Posts</li>
+						<li class="breadcrumb-item active">{{$post->id}}</li>
 					</ol>
 				</div><!-- /.col -->
 			</div><!-- /.row -->
@@ -36,11 +36,11 @@
 								<tbody>
 									<tr>
 										<td>ID</td>
-										<td>{{$category->id}}</td>
+										<td>{{$post->id}}</td>
 									</tr>
 									<tr>
 										<td>Title</td>
-										<td>{{$category->title}}</td>
+										<td>{{$post->title}}</td>
 									</tr>
 								</tbody>
 							</table>

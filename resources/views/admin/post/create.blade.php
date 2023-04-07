@@ -8,13 +8,12 @@
 		<div class="container-fluid">
 			<div class="row mb-2">
 				<div class="col-sm-6">
-					<h1 class="m-0">Create Category</h1>
+					<h1 class="m-0">Create Post</h1>
 				</div><!-- /.col -->
 				<div class="col-sm-6">
 					<ol class="breadcrumb float-sm-right">
-						<li class="breadcrumb-item"><a href="{{route('admin.index')}}">Admin</a></li>
-						<li class="breadcrumb-item"><a href="{{route('admin.category.index')}}">Categories</a></li>
-						<li class="breadcrumb-item active">Create</li>
+						<li class="breadcrumb-item"><a href="{{route('admin.post.index')}}">Home</a></li>
+						<li class="breadcrumb-item active">Create Post</li>
 					</ol>
 				</div><!-- /.col -->
 			</div><!-- /.row -->
@@ -28,7 +27,7 @@
 			<!-- Small boxes (Stat box) -->
 			<div class="row">
 				<div class="col-4">
-					<form action="{{route('admin.category.store')}}" method="post">
+					<form action="{{route('admin.post.store')}}" method="post">
 						@csrf
 						<div class="form-group">
 							<input type="text" name="title" class="form-control" placeholder="Title">
