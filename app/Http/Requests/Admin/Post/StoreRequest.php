@@ -31,4 +31,13 @@ class StoreRequest extends FormRequest
 			'tag_id.*' => 'nullable|integer|exists:tags,id',
 		];
 	}
+
+	public function messages()
+	{
+		return [
+			'title.required' => 'Required field',
+			'category_id.required' => 'Please choose category',
+			'title.required' => 'Required field',
+		];
+	}
 }

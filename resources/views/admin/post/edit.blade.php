@@ -87,7 +87,7 @@
 										</div>
 									</div>
 									@error('main_image')
-									<div class="text-danger">Please choose image</div>
+									<div class="text-danger">{{$message}}</div>
 									@enderror
 								</div>
 							</div>
@@ -103,7 +103,7 @@
 										@endforeach
 									</select>
 									@error('category_id')
-									<div class="text-danger">Choose category</div>
+									<div class="text-danger">{{$message}}</div>
 									@enderror
 								</div>
 							</div>
