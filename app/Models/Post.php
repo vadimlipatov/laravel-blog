@@ -8,10 +8,11 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Post extends Model
 {
-	use HasFactory;
+	use HasFactory, SoftDeletes;
+
 	protected $guarded = false;
-	protected $table = 'posts';
-	use SoftDeletes;
+	protected $withCount = ['likedUsers'];
+	protected $with = ['category'];
 
 	public function tags()
 	{

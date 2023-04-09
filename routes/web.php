@@ -18,6 +18,15 @@ Route::group(['namespace' => 'App\Http\Controllers\Main'], function () {
 	Route::get('/', 'IndexController')->name('main.index');
 });
 
+// Category
+Route::group(['namespace' => 'App\Http\Controllers\Category', 'prefix' => 'categories'], function () {
+	Route::get('/', 'IndexController')->name('category.index');
+
+	Route::group(['namespace' => 'Post', 'prefix' => '{category}/posts'], function () {
+		Route::get('/', 'IndexController')->name('category.post.index');
+	});
+});
+
 // Post
 Route::group(['namespace' => 'App\Http\Controllers\Post', 'prefix' => 'posts'], function () {
 	Route::get('/', 'IndexController')->name('post.index');
@@ -26,6 +35,10 @@ Route::group(['namespace' => 'App\Http\Controllers\Post', 'prefix' => 'posts'], 
 	// posts/1/comments
 	Route::group(['namespace' => 'Comment', 'prefix' => '{post}/comments'], function () {
 		Route::post('/', 'StoreController')->name('post.comment.store');
+	});
+	// posts/1/likes
+	Route::group(['namespace' => 'Like', 'prefix' => '{post}/likes'], function () {
+		Route::post('/', 'StoreController')->name('post.like.store');
 	});
 });
 

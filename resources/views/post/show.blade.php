@@ -10,12 +10,27 @@
 		</section>
 		<section class="post-content">
 			<div class="row">
-				<div class="col-12 mx-auto" data-aos="fade-up">
+				<div class="col-11" data-aos="fade-up">
 					{!! $post->content !!}
+				</div>
+				<div class="col-1">
+					<form action="{{route('post.like.store', $post->id)}}" method="POST">
+						@csrf
+						<button class="border-0 bg-transparent" type="submit">
+							@auth
+							@if(auth()->user()->likedPosts->contains($post->id))
+							<i class="fas fa-heart"></i>
+							@else
+							<i class="far fa-heart"></i>
+							@endif
+							@endauth
+						</button>
+					</form>
 				</div>
 			</div>
 		</section>
 
+		@if($relatedPosts->count())
 		<div class="row">
 			<div class="col-lg-9 mx-auto">
 				<section class="related-posts">
@@ -32,7 +47,9 @@
 						@endforeach
 					</div>
 				</section>
+				@endif
 
+				@if($post->comments->count())
 				<section>
 					<div class="row">
 						<div class="col-12">
@@ -57,6 +74,7 @@
 						</div>
 					</div>
 				</section>
+				@endif
 
 				@auth()
 				<section class="comment-section mt-5">

@@ -30,6 +30,9 @@
 							<a class="nav-link" href="{{route('main.index')}}">Blog</a>
 						</li>
 						<li class="nav-item dropdown">
+							<a class="nav-link" href="{{route('category.index')}}">Category</a>
+						</li>
+						<li class="nav-item dropdown">
 							<a class="nav-link" href="{{route('personal.index')}}">Personal</a>
 						</li>
 						<li class="nav-item dropdown">
