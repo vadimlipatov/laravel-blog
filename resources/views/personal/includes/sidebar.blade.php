@@ -15,6 +15,15 @@
 				</li>
 
 				<li class="nav-item">
+					<a href="{{route('main.index')}}" class="nav-link">
+						<i class="nav-icon fas fa-clipboard"></i>
+						<p>
+							Back to Blog
+						</p>
+					</a>
+				</li>
+
+				<li class="nav-item">
 					<a href="{{route('personal.liked.index')}}" class="nav-link">
 						<i class="nav-icon fas fa-heart"></i>
 						<p>

@@ -35,12 +35,25 @@
 						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" href="{{route('admin.index')}}">Admin</a>
 						</li>
+					</ul>
 
-						<ul class="navbar-nav mt-2 mt-lg-0">
-							<li class="nav-item">
-								<a class="nav-link" href="/login">Login</a>
-							</li>
-						</ul>
+					<ul class="navbar-nav mt-2 mt-lg-0">
+						@auth()
+						<li class="nav-item"><button type="disabled" class="btn">Hello, {{auth()->user()->name}}</button></li>
+						<li class="nav-item">
+							<form action="{{route('logout')}}" method="post">
+								@csrf
+								<button type="submit" class="btn btn-outline-primary">Logout</button>
+							</form>
+						</li>
+						@endauth
+						@guest()
+						<li class="nav-item">
+							<a class="nav-link btn btn-outline-primary" href="{{route('personal.index')}}">Login</a>
+						</li>
+						@endguest
+					</ul>
+
 				</div>
 			</nav>
 		</div>
