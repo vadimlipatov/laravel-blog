@@ -13,13 +13,8 @@ class IndexController extends Controller
 {
 	public function __invoke()
 	{
-		// $data['userName'] = Str::title(auth()->user()->name);
-		// $data['usersCount'] = User::all()->count();
-		// $data['postsCount'] = Post::all()->count();
-		// $data['categoriesCount'] = Category::all()->count();
-		// $data['tagsCount'] = Tag::all()->count();
-
-		// return view('personal.main.index', compact('data'));
-		return view('personal.comment.index');
+		$comments = auth()->user()->comments;
+		// dd($comments);
+		return view('personal.comment.index', compact('comments'));
 	}
 }
