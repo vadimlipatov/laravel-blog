@@ -13,10 +13,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Main
 Route::group(['namespace' => 'App\Http\Controllers\Main'], function () {
-	Route::get('/', 'IndexController');
+	Route::get('/', 'IndexController')->name('main.index');
 });
 
+// Post
+Route::group(['namespace' => 'App\Http\Controllers\Post', 'prefix' => 'posts'], function () {
+	Route::get('/', 'IndexController')->name('post.index');
+	Route::get('/{post}', 'ShowController')->name('post.show');
+});
+
+// Personal
 Route::group(
 	['namespace' => 'App\Http\Controllers\Personal', 'prefix' => 'personal', 'middleware' => ['auth']],
 	function () {
@@ -36,6 +44,7 @@ Route::group(
 	}
 );
 
+// Admin
 Route::group(['namespace' => 'App\Http\Controllers\Admin', 'prefix' => 'admin', 'middleware' => ['auth', 'admin']], function () {
 
 	Route::group(['namespace' => 'Main'], function () {
@@ -83,4 +92,5 @@ Route::group(['namespace' => 'App\Http\Controllers\Admin', 'prefix' => 'admin', 
 	});
 });
 
+// Auth
 Auth::routes();
