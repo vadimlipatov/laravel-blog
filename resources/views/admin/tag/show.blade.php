@@ -14,8 +14,8 @@
 				</div><!-- /.col -->
 				<div class="col-sm-6">
 					<ol class="breadcrumb float-sm-right">
-						<li class="breadcrumb-item"><a href="{{route('admin.tag.index')}}">Home</a></li>
-						<li class="breadcrumb-item">Tags</li>
+						<li class="breadcrumb-item"><a href="{{route('admin.index')}}">Home</a></li>
+						<li class="breadcrumb-item"><a href="{{route('admin.tag.index')}}">Tags</a></li>
 						<li class="breadcrumb-item active">{{$tag->id}}</li>
 					</ol>
 				</div><!-- /.col -->

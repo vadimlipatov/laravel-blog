@@ -13,7 +13,28 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::group(['namespace' => 'App\Http\Controllers\Main'], function () {
+	Route::get('/', 'IndexController');
+});
+
+Route::group(
+	['namespace' => 'App\Http\Controllers\Personal', 'prefix' => 'personal', 'middleware' => ['auth']],
+	function () {
+		Route::group(['namespace' => 'Main'], function () {
+			Route::get('/', 'IndexController')->name('personal.index');
+		});
+		Route::group(['namespace' => 'Liked', 'prefix' => 'liked'], function () {
+			Route::get('/', 'IndexController')->name('personal.liked.index');
+			Route::delete('/{post}', 'DeleteController')->name('personal.liked.delete');
+		});
+		Route::group(['namespace' => 'Comment', 'prefix' => 'comment'], function () {
+			Route::get('/', 'IndexController')->name('personal.comment.index');
+		});
+	}
+);
+
 Route::group(['namespace' => 'App\Http\Controllers\Admin', 'prefix' => 'admin', 'middleware' => ['auth', 'admin']], function () {
+
 	Route::group(['namespace' => 'Main'], function () {
 		Route::get('/', 'IndexController')->name('admin.index');
 	});
@@ -57,10 +78,6 @@ Route::group(['namespace' => 'App\Http\Controllers\Admin', 'prefix' => 'admin', 
 		Route::patch('/{user}', 'UpdateController')->name('admin.user.update');
 		Route::delete('/{user}', 'DeleteController')->name('admin.user.delete');
 	});
-});
-
-Route::group(['namespace' => 'App\Http\Controllers\Main'], function () {
-	Route::get('/', 'IndexController');
 });
 
 Auth::routes();

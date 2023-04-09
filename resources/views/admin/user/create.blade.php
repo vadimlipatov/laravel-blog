@@ -12,8 +12,9 @@
 				</div><!-- /.col -->
 				<div class="col-sm-6">
 					<ol class="breadcrumb float-sm-right">
-						<li class="breadcrumb-item"><a href="{{route('admin.user.index')}}">Home</a></li>
-						<li class="breadcrumb-item active">Create User</li>
+						<li class="breadcrumb-item"><a href="{{route('admin.index')}}">Home</a></li>
+						<li class="breadcrumb-item"><a href="{{route('admin.user.index')}}">Users</a></li>
+						<li class="breadcrumb-item active">Create</li>
 					</ol>
 				</div><!-- /.col -->
 			</div><!-- /.row -->
